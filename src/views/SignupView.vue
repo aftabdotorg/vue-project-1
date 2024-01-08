@@ -1,6 +1,6 @@
 <script setup>
 import FormC from '../components/form/FormC.vue'
-import UserList from "../components/userlist/UserList.vue"
+import UserList from '../components/userlist/UserList.vue'
 
 const formData = [
   {
@@ -29,8 +29,7 @@ const formData = [
   }
 ]
 
- const users = JSON.parse(localStorage.getItem("credentials"))
-
+const users = JSON.parse(localStorage.getItem('credentials'))
 </script>
 
 <template>
@@ -43,7 +42,6 @@ const formData = [
   <h3>Users</h3>
 
   <UserList :users="users" />
-
 </template>
 
 <style>
@@ -62,5 +60,4 @@ h3 {
   margin-top: 6rem;
   font-size: 1rem;
 }
-
 </style>
