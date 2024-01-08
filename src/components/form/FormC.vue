@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineProps } from 'vue'
+import { ref } from 'vue'
 const props = defineProps(['formData'])
 const formData = props.formData
 const submittedData = {}
@@ -8,18 +8,27 @@ formData.forEach((ele) => {
   submittedData[ele.name] = ref('')
 })
 
-
+let temp = []
+let userArr = []
 const handleFormSubmit = () => {
-  const temp = [];
-  console.log('running')
-  formData.map((ele) => {
-    // console.log(ele.name + 'value:' + submittedData[ele.name].value)
+  // console.log('running')
+
+  formData.forEach((ele) => {
     temp.push({
-        name: ele.name,
-        value: submittedData[ele.name].value
+      name: ele.name,
+      value: submittedData[ele.name].value
     })
   })
-  console.log(temp)
+
+  let newUSR = {}
+  temp.forEach((ele) => {
+    newUSR[ele.name] = ele.value
+  })
+
+  userArr.push(newUSR)
+  console.log(userArr)
+
+  localStorage.setItem('credentials', JSON.stringify(userArr))
 }
 </script>
 
@@ -41,24 +50,24 @@ const handleFormSubmit = () => {
   display: flex;
   gap: 1rem;
   flex-direction: column;
-  height: 40rem;
+  height: 12rem;
   justify-content: center;
   align-items: center;
   margin: auto;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
 }
 
 .form_component input {
   font-size: 1rem;
   padding: 0.5rem 1rem;
   outline: none;
-  border: none;
   border-radius: 0.3rem;
 }
 
 .form_btn {
   padding: 0.3rem 0.5rem;
   outline: none;
-  border: none;
+  border-radius: 0.3rem;
+  background-color: aliceblue;
 }
 </style>

@@ -50,7 +50,6 @@ ul li {
   height: 280px;
   border: 1px solid grey;
   list-style-type: none;
-  color: whitesmoke;
   text-transform: capitalize;
 
   &:hover {
