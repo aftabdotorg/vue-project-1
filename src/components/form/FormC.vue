@@ -10,15 +10,11 @@ formData.forEach((ele) => {
 
 let userArr = []
 const handleFormSubmit = () => {
-  
-
   let newUSR = {}
   formData.forEach((ele) => {
     newUSR[ele.name] = submittedData[ele.name].value
   })
-
   userArr.push(newUSR)
-
   localStorage.setItem('credentials', JSON.stringify(userArr))
 }
 </script>
