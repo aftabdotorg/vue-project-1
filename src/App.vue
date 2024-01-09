@@ -10,6 +10,9 @@
     <li>
       <RouterLink to="/signup">Sign up</RouterLink>
     </li>
+    <li>
+      <RouterLink to="/login">Login</RouterLink>
+    </li>
   </nav>
   <RouterView />
 </template>
