@@ -7,3 +7,13 @@
   font-weight: normal;
 }
 
+button{
+  color: white;
+  background-color: rgb(143, 112, 172);
+  font-size: 20px;
+  border-radius: 0.3rem;
+  border: none;
+  outline: none;
+  padding: 0.2rem 0.3rem;
+}
+

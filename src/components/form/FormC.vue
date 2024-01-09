@@ -2,29 +2,31 @@
 import { ref } from 'vue'
 const props = defineProps(['formData'])
 const formData = props.formData
-const submittedData = {}
 
+const submittedData = {}
 formData.forEach((ele) => {
   submittedData[ele.name] = ref('')
 })
 
-let userArr = []
+const finalOBJ = {}
+
 const handleFormSubmit = () => {
-  let newUSR = {}
-  formData.forEach((ele) => {
-    newUSR[ele.name] = submittedData[ele.name].value
-  })
-  userArr.push(newUSR)
-  localStorage.setItem('credentials', JSON.stringify(userArr))
+  for (const [key, value] of Object.entries(submittedData)) {
+    finalOBJ[key] = value.value
+  }
+  let usrData = JSON.parse(localStorage.getItem(formData[0].formType)) || []
+  usrData.push(finalOBJ)
+
+  localStorage.setItem(formData[0].formType, JSON.stringify(usrData))
 }
 </script>
 
 <template>
-  <form class="form_component" v-on:submit.prevent="handleFormSubmit">
+  <form class="form_component" @submit.prevent="handleFormSubmit">
     <input
       v-for="data in formData"
       :key="data.id"
-      :placeholder="data.placeholder"
+      :placeholder="`enter ${data.name}`"
       :type="data.type"
       v-model="submittedData[data.name].value"
     />
@@ -51,10 +53,4 @@ const handleFormSubmit = () => {
   border-radius: 0.3rem;
 }
 
-.form_btn {
-  padding: 0.3rem 0.5rem;
-  outline: none;
-  border-radius: 0.3rem;
-  background-color: aliceblue;
-}
 </style>

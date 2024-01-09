@@ -1,33 +1,42 @@
 <script setup>
+import { ref } from 'vue'
 import FormC from '../components/form/FormC.vue'
+import UserList from '@/components/userlist/UserList.vue';
 
+let signUpData = ref([])
+
+const fetchData = () => {
+  const data = JSON.parse(localStorage.getItem('signup'))
+  signUpData.value = data
+}
+
+fetchData()
 const formData = [
   {
     id: 1,
     name: 'name',
     type: 'text',
-    placeholder: 'enter name'
+    formType: 'signup'
   },
   {
     id: 2,
     name: 'email',
     type: 'text',
-    placeholder: 'enter email'
+    formType: 'signup'
   },
   {
     id: 3,
     name: 'number',
     type: 'number',
-    placeholder: 'enter phone'
+    formType: 'signup'
   },
   {
     id: 3,
     name: 'password',
     type: 'password',
-    placeholder: 'enter password'
+    formType: 'signup'
   }
 ]
-
 </script>
 
 <template>
@@ -37,6 +46,8 @@ const formData = [
     <FormC :formData="formData" />
   </section>
 
+  <h2>Users</h2>
+  <UserList :signUpData="signUpData" />
 </template>
 
 <style>
@@ -48,11 +59,5 @@ const formData = [
 h1 {
   text-align: center;
   font-size: 3rem;
-}
-
-h3 {
-  text-align: center;
-  margin-top: 6rem;
-  font-size: 1rem;
 }
 </style>
