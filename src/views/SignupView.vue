@@ -30,6 +30,7 @@ const formData = [
 ]
 
 const users = JSON.parse(localStorage.getItem('credentials'))
+console.log(users);
 </script>
 
 <template>

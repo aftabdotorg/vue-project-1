@@ -8,25 +8,16 @@ formData.forEach((ele) => {
   submittedData[ele.name] = ref('')
 })
 
-let temp = []
 let userArr = []
 const handleFormSubmit = () => {
-  // console.log('running')
-
-  formData.forEach((ele) => {
-    temp.push({
-      name: ele.name,
-      value: submittedData[ele.name].value
-    })
-  })
+  
 
   let newUSR = {}
-  temp.forEach((ele) => {
-    newUSR[ele.name] = ele.value
+  formData.forEach((ele) => {
+    newUSR[ele.name] = submittedData[ele.name].value
   })
 
   userArr.push(newUSR)
-  console.log(userArr)
 
   localStorage.setItem('credentials', JSON.stringify(userArr))
 }
