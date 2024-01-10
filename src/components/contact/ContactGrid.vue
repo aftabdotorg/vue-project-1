@@ -7,19 +7,19 @@ const apiData = ref([])
 
 onMounted(() => {
   fetch(apiUrl)
-  .then((res) => res.json())
-  .then((data) => {
-    apiData.value = data
-  })
+    .then((res) => res.json())
+    .then((data) => {
+      apiData.value = data
+    })
     .catch((err) => {
       console.log(err)
     })
 })
-
 </script>
 
 <template>
-  <h1 >Contacts</h1>
+  <h1>Contacts</h1>
+  <h3>Click contact card to change color</h3>
   <ul>
     <li v-for="(user, i) in apiData" :key="user.id">
       <ContactCard :user="user" :i="i" />
@@ -27,11 +27,8 @@ onMounted(() => {
   </ul>
 </template>
 
-<style>
-img {
-  height: 100px;
-  widows: 100px;
-}
+<style scoped>
+
 
 ul {
   display: grid;
@@ -60,23 +57,14 @@ ul li {
   }
 }
 
+h3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(90, 54, 124);
+  font-weight: 400;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

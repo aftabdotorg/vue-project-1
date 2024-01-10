@@ -35,6 +35,11 @@ function generateImageUrl(userId) {
   margin: auto;
 }
 
+.card > img {
+  height: 100px;
+  widows: 100px;
+}
+
 .credentials p {
   font-size: 13px;
   font-weight: 500;
