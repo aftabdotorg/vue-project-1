@@ -11,7 +11,7 @@
 button {
   color: white;
   font-weight: bold;
-  background-color: rgb(143, 112, 172);
+  background-color: rgb(116, 67, 161);
   font-size: 1rem;
   border-radius: 0.3rem;
   border: none;
@@ -33,11 +33,11 @@ a {
   outline: none;
   border-radius: 0.3rem;
   font-weight: 500;
-  color: rgb(143, 112, 172);
+  color: rgb(116, 67, 161);
 }
 
 a:active {
-  color: rgb(143, 112, 172);
+  color: rgb(116, 67, 161);
 }
 
 h1 {
