@@ -4,7 +4,6 @@ import HomeView from "../views/HomeView.vue"
 import SignupViewVue from '@/views/SignupView.vue'
 import LoginViewVue from '@/views/LoginView.vue'
 import EventsViewVue from '@/views/EventsView.vue'
-import ExpenseTrackerVue from '@/views/ExpenseTracker.vue'
 import EmitViewVue from '@/views/EmitView.vue'
 
 const router = createRouter({
@@ -29,11 +28,6 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: LoginViewVue
-    },
-    {
-      path: '/expense',
-      name: 'expense',
-      component: ExpenseTrackerVue
     },
     {
       path: '/events',
