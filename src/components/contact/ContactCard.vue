@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-defineProps(['user', 'i'])
+defineProps(['name', 'username', 'phone', 'website', 'email', 'i'])
 
 const isBackgroundChanged = ref([])
 
@@ -16,11 +16,11 @@ const toggleBackground = (i) => {
   >
     <img src="https://robohash.org/4" alt="robo" />
     <div class="credentials">
-      <div>Name: {{ user.name }}</div>
-      <div>Username: {{ user.username }}</div>
-      <div>Email: {{ user.email }}</div>
-      <div>Phone: {{ user.phone }}</div>
-      <div>website: {{ user.website }}</div>
+      <div>Name: {{ name }}</div>
+      <div>Username: {{ username }}</div>
+      <div>Email: {{ email }}</div>
+      <div>Phone: {{ phone }}</div>
+      <div>website: {{ website }}</div>
     </div>
   </li>
 </template>
