@@ -3,7 +3,7 @@
     <h3>v-if | v-else</h3>
     <div v-if="Math.random() > 0.5">Now you see me</div>
     <div v-else>Now you don't</div>
-    <button @click="refreshPage">Refresh Page</button>
+    <button @click="refreshPage">Refresh</button>
   </div>
 </template>
 

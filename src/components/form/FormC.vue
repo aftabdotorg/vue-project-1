@@ -36,14 +36,13 @@ const handleFormSubmit = () => {
 
 <style>
 .form_component {
+  margin: auto;
   display: flex;
   gap: 1rem;
   flex-direction: column;
-  height: 12rem;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  /* border: 1px solid grey; */
+  padding: 1rem;
 }
 
 .form_component input {
@@ -51,6 +50,7 @@ const handleFormSubmit = () => {
   padding: 0.5rem 1rem;
   outline: none;
   border-radius: 0.3rem;
+  border: 1px solid grey;
 }
 
 </style>

@@ -19,7 +19,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1>Contacts</h1>
+  <h1 >Contacts</h1>
   <ul>
     <li v-for="(user, i) in apiData" :key="user.id">
       <ContactCard :name="user.name" :username="user.username" :email="user.email" :phone="user.phone" :website ="user.website" :i="i" />
@@ -60,11 +60,6 @@ ul li {
   }
 }
 
-h1 {
-  text-align: center;
-  font-size: 3rem;
-  padding: 2rem 0;
-}
 </style>
 
 

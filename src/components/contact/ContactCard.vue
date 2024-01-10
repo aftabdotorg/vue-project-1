@@ -16,11 +16,11 @@ const toggleBackground = (i) => {
   >
     <img src="https://robohash.org/4" alt="robo" />
     <div class="credentials">
-      <div>Name: {{ name }}</div>
-      <div>Username: {{ username }}</div>
-      <div>Email: {{ email }}</div>
-      <div>Phone: {{ phone }}</div>
-      <div>website: {{ website }}</div>
+      <p>Name: {{ name }}</p>
+      <p>Username: {{ username }}</p>
+      <p>Email: {{ email }}</p>
+      <p>Phone: {{ phone }}</p>
+      <p>website: {{ website }}</p>
     </div>
   </li>
 </template>
@@ -29,6 +29,12 @@ const toggleBackground = (i) => {
 .card {
   transition: background-color 0.3s ease;
   margin: auto;
+}
+
+
+.credentials p{
+   font-size: 13px;
+   font-weight: 500;
 }
 
 .background-changed {

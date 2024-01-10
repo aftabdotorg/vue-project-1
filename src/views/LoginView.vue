@@ -18,20 +18,8 @@ const formData = [
 </script>
 
 <template>
-  <h1>Login</h1>
-
   <section class="signup_container">
+    <h1>Login</h1>
     <FormC :formData="formData" />
   </section>
 </template>
-
-<style>
-.signup_container {
-  margin: auto;
-}
-
-h1 {
-  text-align: center;
-  font-size: 3rem;
-}
-</style>

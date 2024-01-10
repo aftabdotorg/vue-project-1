@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import FormC from '../components/form/FormC.vue'
-import UserList from '@/components/userlist/UserList.vue';
+import UserList from '@/components/userlist/UserList.vue'
 
 let signUpData = ref([])
 
@@ -40,24 +40,17 @@ const formData = [
 </script>
 
 <template>
-  <h1>Sign up</h1>
-
   <section class="signup_container">
+    <h1>Sign up</h1>
     <FormC :formData="formData" />
   </section>
 
-  <h2>Users</h2>
+  <h1>Registered Users</h1>
   <UserList :signUpData="signUpData" />
 </template>
 
 <style>
-.signup_container {
-  /* height: 100vh; */
-  margin: auto;
-}
-
-h1 {
-  text-align: center;
-  font-size: 3rem;
+.signup_container + h1 {
+  margin-top: 4rem;
 }
 </style>

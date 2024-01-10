@@ -36,7 +36,10 @@
   --section-gap: 160px;
 }
 
-
+*{
+  margin: 0;
+  padding: 0;
+}
 
 
 
@@ -61,7 +64,6 @@ body {
     'Droid Sans',
     'Helvetica Neue',
     sans-serif;
-  font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
