@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-unused-vars -->
 <script setup>
 import { ref, onMounted } from 'vue'
 import ContactCard from './ContactCard.vue'
@@ -6,25 +7,27 @@ const apiData = ref([])
 
 onMounted(() => {
   fetch(apiUrl)
-    .then((res) => res.json())
-    .then((data) => {
-      apiData.value = data
-    })
+  .then((res) => res.json())
+  .then((data) => {
+    apiData.value = data
+  })
     .catch((err) => {
       console.log(err)
     })
 })
+
 </script>
 
 <template>
   <h1>Contacts</h1>
   <ul>
-    <ContactCard :data="apiData" />
+    <li v-for="(user, i) in apiData" :key="user.id">
+      <ContactCard :user="user" :i="i" />
+    </li>
   </ul>
 </template>
 
 <style>
-
 img {
   height: 100px;
   widows: 100px;
@@ -57,7 +60,7 @@ ul li {
   }
 }
 
-h1{
+h1 {
   text-align: center;
   font-size: 3rem;
   padding: 2rem 0;

@@ -1,18 +1,16 @@
 <script setup>
 import { ref } from 'vue'
-defineProps(['data'])
+defineProps(['user', 'i'])
+
 const isBackgroundChanged = ref([])
 
 const toggleBackground = (i) => {
   isBackgroundChanged.value[i] = !isBackgroundChanged.value[i]
 }
 </script>
-
 <template>
   <li
     class="card"
-    v-for="(user, i) in data"
-    :key="user.id"
     :class="{ 'background-changed': isBackgroundChanged[i] }"
     @click="toggleBackground(i)"
   >
