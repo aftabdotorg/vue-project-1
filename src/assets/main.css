@@ -33,6 +33,7 @@ a {
   outline: none;
   border-radius: 0.3rem;
   font-weight: 500;
+  color: rgb(143, 112, 172);
 }
 
 a:active {
