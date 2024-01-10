@@ -22,7 +22,7 @@ onMounted(() => {
   <h1 >Contacts</h1>
   <ul>
     <li v-for="(user, i) in apiData" :key="user.id">
-      <ContactCard :name="user.name" :username="user.username" :email="user.email" :phone="user.phone" :website ="user.website" :i="i" />
+      <ContactCard :user="user" :i="i" />
     </li>
   </ul>
 </template>

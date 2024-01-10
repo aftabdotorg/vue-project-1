@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import FormC from '../components/form/FormC.vue'
 import UserList from '@/components/userlist/UserList.vue'
 
@@ -10,7 +10,10 @@ const fetchData = () => {
   signUpData.value = data
 }
 
-fetchData()
+onMounted(() => {
+  fetchData()
+})
+
 const formData = [
   {
     id: 1,

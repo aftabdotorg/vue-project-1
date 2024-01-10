@@ -22,7 +22,7 @@ defineProps(['signUpData'])
 }
 
 .user_container li {
-  padding: 0.4rem 0.8rem ;
+  padding: 0.4rem 0.8rem;
   color: darkslategray;
   list-style-type: decimal;
 }

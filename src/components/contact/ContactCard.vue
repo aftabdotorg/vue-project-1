@@ -1,11 +1,15 @@
 <script setup>
 import { ref } from 'vue'
-defineProps(['name', 'username', 'phone', 'website', 'email', 'i'])
+defineProps(['user', 'i'])
 
 const isBackgroundChanged = ref([])
 
 const toggleBackground = (i) => {
   isBackgroundChanged.value[i] = !isBackgroundChanged.value[i]
+}
+
+function generateImageUrl(userId) {
+  return `https://robohash.org/${userId}`
 }
 </script>
 <template>
@@ -14,13 +18,13 @@ const toggleBackground = (i) => {
     :class="{ 'background-changed': isBackgroundChanged[i] }"
     @click="toggleBackground(i)"
   >
-    <img src="https://robohash.org/4" alt="robo" />
+    <img :src="generateImageUrl(user.id)" :alt="`robo-${user.id}`" />
     <div class="credentials">
-      <p>Name: {{ name }}</p>
-      <p>Username: {{ username }}</p>
-      <p>Email: {{ email }}</p>
-      <p>Phone: {{ phone }}</p>
-      <p>website: {{ website }}</p>
+      <p>Name: {{ user.name }}</p>
+      <p>Username: {{ user.username }}</p>
+      <p>Email: {{ user.email }}</p>
+      <p>Phone: {{ user.phone }}</p>
+      <p>website: {{ user.website }}</p>
     </div>
   </li>
 </template>
@@ -31,14 +35,13 @@ const toggleBackground = (i) => {
   margin: auto;
 }
 
-
-.credentials p{
-   font-size: 13px;
-   font-weight: 500;
+.credentials p {
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .background-changed {
-  background-color: rgb(129, 88, 167);
+  background-color: rgb(52, 13, 85);
   color: white;
 }
 </style>
