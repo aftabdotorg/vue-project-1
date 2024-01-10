@@ -6,7 +6,7 @@ import UserList from '@/components/userlist/UserList.vue'
 let signUpData = ref([])
 
 const fetchData = () => {
-  const data = JSON.parse(localStorage.getItem('signup'))
+  const data = JSON.parse(localStorage.getItem('signup')) || []
   signUpData.value = data
 }
 

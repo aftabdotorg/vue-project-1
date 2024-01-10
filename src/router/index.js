@@ -5,6 +5,7 @@ import SignupViewVue from '@/views/SignupView.vue'
 import LoginViewVue from '@/views/LoginView.vue'
 import EventsViewVue from '@/views/EventsView.vue'
 import ExpenseTrackerVue from '@/views/ExpenseTracker.vue'
+import EmitViewVue from '@/views/EmitView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
       path: '/events',
       name: 'events',
       component: EventsViewVue
+    },
+    {
+      path: '/emits',
+      name: 'emits',
+      component: EmitViewVue
     },
   ]
 })

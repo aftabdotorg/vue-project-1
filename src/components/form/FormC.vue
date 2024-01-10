@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 const props = defineProps(['formData'])
 const formData = props.formData
-
+console.log(formData)
 const submittedData = {}
 formData.forEach((ele) => {
   submittedData[ele.name] = ref('')
@@ -14,6 +14,7 @@ const handleFormSubmit = () => {
   for (const [key, value] of Object.entries(submittedData)) {
     finalOBJ[key] = value.value
   }
+
   let usrData = JSON.parse(localStorage.getItem(formData[0].formType)) || []
   usrData.push(finalOBJ)
 
@@ -52,5 +53,4 @@ const handleFormSubmit = () => {
   border-radius: 0.3rem;
   border: 1px solid grey;
 }
-
 </style>

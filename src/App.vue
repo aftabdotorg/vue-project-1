@@ -4,7 +4,8 @@
     <RouterLink to="/"> Home </RouterLink>
     <RouterLink to="/contacts">Contacts</RouterLink>
     <RouterLink to="/events">Events</RouterLink>
-    <RouterLink to="/expense">Expense Tracker</RouterLink>
+    <RouterLink to="/emits">Emits</RouterLink>
+    <!-- <RouterLink to="/expense">Expense Tracker</RouterLink> -->
     <RouterLink to="/signup">Sign up</RouterLink>
     <RouterLink to="/login">Login</RouterLink>
   </nav>
