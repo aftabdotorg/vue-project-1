@@ -13,7 +13,7 @@ const toggleVisibility = () => {
     <button v-else class="" v-on:click="toggleVisibility">Show</button>
 
     <div v-if="isVisible" class="content">
-      <p class="hidden">Congratulations</p>
+      <p class="hidden">Hidden Content</p>
     </div>
     <div v-else class="content display_none"></div>
   </div>
@@ -25,6 +25,7 @@ const toggleVisibility = () => {
   color: #fff;
   padding: 10px;
   margin-top: 20px;
+  border-radius:0.5rem;
 }
 
 .hidden {

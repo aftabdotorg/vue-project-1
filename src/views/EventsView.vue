@@ -34,10 +34,10 @@ import VisibilityComponent from '../components/events-directives/VisibilityCompo
   height: 150px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  border: 1px solid rgb(79, 15, 138);
   padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 5px;
 }
 </style>

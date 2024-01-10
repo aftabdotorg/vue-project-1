@@ -18,7 +18,13 @@ button {
   outline: none;
   padding: 0.3rem 0.5rem;
   cursor: pointer;
+
+  &:hover{
+    filter: brightness(90%);
+  }
 }
+
+
 
 a {
   text-decoration: none;
