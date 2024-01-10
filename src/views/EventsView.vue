@@ -19,7 +19,6 @@ import VisibilityComponent from '../components/events-directives/VisibilityCompo
 <style>
 .section_events {
     height: 200px;
-    /* border: 1px solid grey; */
     padding: 3rem 0 ;
 
 }
