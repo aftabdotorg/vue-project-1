@@ -20,6 +20,6 @@ const formData = [
 <template>
   <section class="signup_container">
     <h1>Login</h1>
-    <FormC :formData="formData" />
+    <FormC :formData="formData" :handleFormSubmit="() => handleFormSubmit('signup')" />
   </section>
 </template>

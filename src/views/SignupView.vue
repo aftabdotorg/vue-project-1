@@ -6,13 +6,14 @@ import UserList from '@/components/userlist/UserList.vue'
 let signUpData = ref([])
 
 const fetchData = (signup) => {
-  const data = JSON.parse(localStorage.getItem(signup)) || []
-  signUpData.value = data
+  if(signup){
+    return signUpData.value = signup
+  }
+ 
 }
-
-// onMounted(() => {
-  fetchData("signup")
-// })
+// run on start
+const data = JSON.parse(localStorage.getItem("signup")) || []
+  signUpData.value = data
 
 const formData = [
   {
@@ -45,7 +46,7 @@ const formData = [
 <template>
   <section class="signup_container">
     <h1>Sign up</h1>
-    <FormC :formData="formData" />
+    <FormC :formData="formData" :fetchData="fetchData" />
   </section>
 
   <h1>Registered Users</h1>

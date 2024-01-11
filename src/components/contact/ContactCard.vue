@@ -1,14 +1,20 @@
 <script setup>
 import { ref } from 'vue'
+// import { useRouter } from 'vue-router'
 defineProps(['user', 'i'])
-// console.log(user);
 
+
+// const router = useRouter()
 const isBackgroundChanged = ref([])
 
 const toggleBackground = (i) => {
   isBackgroundChanged.value[i] = !isBackgroundChanged.value[i]
 }
 
+// const goToDetails = () => {
+//   console.log('hello')
+//   router.push({ name: 'contact', params: { id: props.user.id } })
+// }
 </script>
 <template>
   <li
@@ -24,7 +30,7 @@ const toggleBackground = (i) => {
       <p>Phone: {{ user.phone }}</p>
       <p>website: {{ user.domain }}</p>
       <router-link :to="`/contact/${user.id}`">
-        <button id="detail_btn">Details</button>
+      <button id="detail_btn" @click="goToDetails">Details</button>
       </router-link>
     </div>
   </li>
@@ -48,8 +54,10 @@ a {
 .card {
   transition: background-color 0.3s ease;
   margin: auto;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;  list-style-type: none;
-
+  box-shadow:
+    rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  list-style-type: none;
 }
 
 .credentials {

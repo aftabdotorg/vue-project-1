@@ -1,8 +1,9 @@
 <script setup>
 import { ref } from 'vue'
-const props = defineProps(['formData'])
+const props = defineProps(['formData', 'fetchData'])
 const formData = props.formData
-console.log(formData)
+const fetchData = props.fetchData
+
 const submittedData = {}
 formData.forEach((ele) => {
   submittedData[ele.name] = ref('')
@@ -12,13 +13,19 @@ const finalOBJ = {}
 
 const handleFormSubmit = () => {
   for (const [key, value] of Object.entries(submittedData)) {
+    // checking for empty values
+    if (!value.value) {
+      alert('Please fill in all fields before submitting.')
+      return
+    }
     finalOBJ[key] = value.value
   }
 
-  let usrData = JSON.parse(localStorage.getItem(formData[0].formType)) || []
-  usrData.push(finalOBJ)
-
-  localStorage.setItem(formData[0].formType, JSON.stringify(usrData))
+    let usrData = JSON.parse(localStorage.getItem(formData[0].formType)) || []
+    usrData.push(finalOBJ)
+    localStorage.setItem(formData[0].formType, JSON.stringify(usrData))
+    fetchData(usrData)
+    alert(`Account created for ${finalOBJ.name}`)
 
   formData.forEach((ele) => {
     submittedData[ele.name].value = ''
