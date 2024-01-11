@@ -12,7 +12,7 @@
   <RouterView />
 </template>
 
-<style>
+<style scoped>
 nav {
   list-style-type: none;
   display: flex;
@@ -24,4 +24,16 @@ nav {
   margin-bottom: 3rem;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
 }
+
+
+a {
+  text-decoration: none;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid grey;
+  outline: none;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  color: rgb(116, 67, 161);
+}
+
 </style>
