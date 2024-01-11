@@ -19,6 +19,10 @@ const handleFormSubmit = () => {
   usrData.push(finalOBJ)
 
   localStorage.setItem(formData[0].formType, JSON.stringify(usrData))
+
+  formData.forEach((ele) => {
+    submittedData[ele.name].value = ''
+  })
 }
 </script>
 
@@ -52,5 +56,6 @@ const handleFormSubmit = () => {
   outline: none;
   border-radius: 0.3rem;
   border: 1px solid grey;
+  font-family: inherit;
 }
 </style>

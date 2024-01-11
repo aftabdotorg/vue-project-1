@@ -33,19 +33,15 @@ onMounted(() => {
     <p>Email: {{ details.email }}</p>
     <p>Phone: {{ details.phone }}</p>
     <p>DOB: {{ details.birthDate }}</p>
-    <div>
-      Company:
-      <div class="company_address" v-for="item in details.company" :key="item">
-        <p>{{ item }}</p>
-      </div>
-      {{ details.address }}
-    </div>
-    <div>
-      Address:
-      <div class="company_address" v-for="item in details.address" :key="item">
-        <p>{{ item }}</p>
-      </div>
-    </div>
+    <p>Age: {{ details.age }}</p>
+    <p>Bloodgroup: {{ details.bloodGroup }}</p>
+    <p>University: {{ details.university }}</p>
+    <p>Gender: {{ details.gender }}</p>
+    <p v-if="details.company">Company: {{ details.company.name }}</p>
+    <p v-if="details.address">
+      Address: {{ details.address.address }} , {{ details.address.city }},
+      {{ details.address.state }}, {{ details.address.postalCode }}
+    </p>
   </section>
 </template>
 
@@ -54,12 +50,6 @@ onMounted(() => {
   width: 300px;
 }
 
-.company_address {
-  margin: auto;
-  padding: 0.5rem 2rem;
-  gap: 1rem;
-  display: inline-flex;
-}
 
 .details_name_span {
   text-decoration: underline;
@@ -71,10 +61,23 @@ onMounted(() => {
 
 .details_section {
   display: flex;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   flex-direction: column;
   gap: 1rem;
-  /* align-items: center; */
+  padding-bottom: 1rem;
+  align-items: center;
   justify-content: center;
+}
+
+.details_section > img {
+    width: 250px;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;}
+
+.details_section > p {
+    border-bottom: 1px solid grey;
+    width: 100%;
+    padding-left:2rem;
 }
 </style>

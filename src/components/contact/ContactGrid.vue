@@ -48,10 +48,10 @@ ul li {
   justify-content: space-around;
   border-radius: 0.7rem;
   margin: auto;
+  padding: 0.3rem 0.2rem;
   width: 250px;
   height: 290px;
-  border: 1px solid grey;
-  list-style-type: none;
+  /* border: 1px solid grey; */
   text-transform: capitalize;
 
   &:hover {

@@ -36,10 +36,11 @@ a {
   justify-content: center;
   align-items: center;
   width: 100%;
+  text-decoration: none;
 }
 
 #detail_btn {
-  width: 100%;
+  width: 100px;
   margin: auto;
   border: 2px solid whitesmoke;
 }
@@ -47,6 +48,8 @@ a {
 .card {
   transition: background-color 0.3s ease;
   margin: auto;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;  list-style-type: none;
+
 }
 
 .credentials {
@@ -69,5 +72,6 @@ a {
 .background-changed {
   background-color: rgb(77, 66, 87);
   color: white;
+  font-weight: 600;
 }
 </style>

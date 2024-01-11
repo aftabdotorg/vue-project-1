@@ -1,18 +1,18 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import FormC from '../components/form/FormC.vue'
 import UserList from '@/components/userlist/UserList.vue'
 
 let signUpData = ref([])
 
-const fetchData = () => {
-  const data = JSON.parse(localStorage.getItem('signup')) || []
+const fetchData = (signup) => {
+  const data = JSON.parse(localStorage.getItem(signup)) || []
   signUpData.value = data
 }
 
-onMounted(() => {
-  fetchData()
-})
+// onMounted(() => {
+  fetchData("signup")
+// })
 
 const formData = [
   {
