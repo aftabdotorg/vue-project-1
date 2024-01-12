@@ -3,7 +3,6 @@ import { ref } from 'vue'
 // import { useRouter } from 'vue-router'
 defineProps(['user', 'i'])
 
-
 // const router = useRouter()
 const isBackgroundChanged = ref([])
 
@@ -29,26 +28,19 @@ const toggleBackground = (i) => {
       <p>Email: {{ user.email }}</p>
       <p>Phone: {{ user.phone }}</p>
       <p>website: {{ user.domain }}</p>
-      <router-link :to="`/contact/${user.id}`">
-      <button id="detail_btn" @click="goToDetails">Details</button>
-      </router-link>
+      <div id="btn_flex">
+        <button id="detail_btn">Add</button>
+        <router-link :to="`/contact/${user.id}`">
+          <button id="detail_btn" @click="goToDetails">Details</button>
+        </router-link>
+      </div>
     </div>
   </li>
 </template>
 
 <style scoped>
 a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
   text-decoration: none;
-}
-
-#detail_btn {
-  width: 100px;
-  margin: auto;
-  border: 2px solid whitesmoke;
 }
 
 .card {
@@ -64,6 +56,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
 }
 
@@ -82,4 +75,13 @@ a {
   color: white;
   font-weight: 600;
 }
+
+#btn_flex{
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
 </style>

@@ -1,14 +1,16 @@
 <script setup>
 defineProps(['signUpData'])
+import { ref } from 'vue'
+const user = ref({})
+const handleClick = (name, signUpData) => {
+   user.value = signUpData.find((ele) => ele.name === name)
+}
 </script>
 
 <template>
-  <div class="user_container" v-for="{ name, email, number } in signUpData" :key="number">
-    <li>
+  <div class="user_container" v-for="{ name, number } in signUpData" :key="number">
+    <li @click.prevent="handleClick(name, signUpData)">
       <span> Name : {{ name }} </span>
-    </li>
-    <li>
-      <span> Email : {{ email }} </span>
     </li>
   </div>
 </template>
@@ -28,6 +30,5 @@ defineProps(['signUpData'])
   font-weight: 500;
   padding: 0.4rem 0.8rem;
   color: darkslategray;
-  list-style-type: none;
 }
 </style>

@@ -1,23 +1,24 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
+import { useContactStore } from '@/stores/ContactStore'
+
 import { useRoute } from 'vue-router'
+const contactStore = useContactStore()
 
 const route = useRoute()
 let details = ref({})
+let loading = ref(false)
 
-onMounted(() => {
+onMounted(async () => {
   const id = route.params.id
-  const apiUrl = `https://dummyjson.com/users/${id}`
-
-  fetch(apiUrl)
-    .then((res) => res.json())
-    .then((data) => {
-      details.value = data
-      console.log(details)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+  try {
+    loading.value = true
+    details.value = await contactStore.fetchDataById(id)
+  } catch (error) {
+    console.error('Error fetching details:', error)
+  } finally {
+    loading.value = false
+  }
 })
 </script>
 
@@ -50,7 +51,6 @@ onMounted(() => {
   width: 300px;
 }
 
-
 .details_name_span {
   text-decoration: underline;
 }
@@ -70,14 +70,17 @@ onMounted(() => {
 }
 
 .details_section > img {
-    width: 250px;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;}
+  width: 250px;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow:
+    rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
 
 .details_section > p {
-    border-bottom: 1px solid grey;
-    width: 100%;
-    padding-left:2rem;
+  border-bottom: 1px solid grey;
+  width: 100%;
+  padding-left: 2rem;
 }
 </style>

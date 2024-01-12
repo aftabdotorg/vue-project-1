@@ -1,36 +1,32 @@
 <!-- eslint-disable vue/no-unused-vars -->
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
+import { useContactStore } from '@/stores/ContactStore'
 import ContactCard from './ContactCard.vue'
-const apiUrl = 'https://dummyjson.com/users'
-const apiData = ref([])
 
-onMounted(() => {
-  fetch(apiUrl)
-    .then((res) => res.json())
-    .then((data) => {
-      apiData.value = data
-      console.log(apiData.value.users);
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+const contactStore = useContactStore()
+
+onMounted(async () => {
+  await contactStore.fetchData()
 })
 </script>
 
 <template>
   <h1>Contacts</h1>
   <h3>Click contact card to change color</h3>
-  <ul>
-    <li v-for="(user, i) in apiData.users" :key="user.id">
+
+  <!-- <template v-if="contactStore.loading">
+    <h1>...loading</h1>
+  </template> -->
+
+  <ul v-if="!contactStore.loading && contactStore.data && contactStore.data.users" >
+    <li v-for="(user, i) in contactStore.data.users" :key="user.id">
       <ContactCard :user="user" :i="i" />
     </li>
   </ul>
 </template>
 
 <style scoped>
-
-
 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -49,8 +45,8 @@ ul li {
   border-radius: 0.7rem;
   margin: auto;
   padding: 0.3rem 0.2rem;
-  width: 250px;
-  height: 290px;
+  width: 290px;
+  height: 300px;
   /* border: 1px solid grey; */
   text-transform: capitalize;
 
@@ -59,7 +55,7 @@ ul li {
   }
 }
 
-h3{
+h3 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,5 +64,4 @@ h3{
   text-decoration: underline;
   margin-bottom: 10px;
 }
-
 </style>

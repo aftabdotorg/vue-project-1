@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import FormC from '../components/form/FormC.vue'
-import UserList from '@/components/userlist/UserList.vue'
+import UserList from '@/components/users/UserList.vue'
 
 let signUpData = ref([])
 
